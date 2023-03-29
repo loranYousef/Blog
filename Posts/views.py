@@ -19,7 +19,9 @@ def create_post(request):
     if request.method =='POST':
         form =PostForm(request.POST,request.Files)
         if form.is_valid():
-            form.save()
+            myform = form.save(commit = False)
+            myform.author = request.user
+            myform.save()
     else:
         form = PostForm()
 
@@ -29,13 +31,14 @@ def create_post(request):
 def edit_post(request,id):
     post = Post.objects.get(id=id)
     if request.method =='POST':
-        form =PostForm(request.POST,request.Files)
+        form =PostForm(request.POST,request.Files,instance =post)
         if form.is_valid():
             myform = form.save(commit = False)
             myform.author = request.user
+            myform.save()
 
     else:
-        form = PostForm()
+        form = PostForm(instance = post)
 
     return render(request,'edit.html',{'form':form})
     
@@ -47,5 +50,8 @@ def edit_post(request,id):
 
 
 
-def delete_post():
-    pass
+def delete_post(request,id):
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('/blog')
+    
