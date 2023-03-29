@@ -5,6 +5,6 @@ from .models import Post
 
 
 class PostForm(forms.ModelForm):
-    class class Meta:
+    class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['image','title','content','tags']
