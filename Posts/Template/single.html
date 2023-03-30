@@ -2,12 +2,10 @@
 <a href="/blog/{{data.id}}/edit">Edit Post</a>
 <a href="/blog/{{data.id}}/delete">Delete Post</a>
 
-
-
-{% for item in data %}
-<h1>a  href="/blog/{{item.id}}">  {{item}}  </a</h1>
-{%endfor%} 
-
-{{data}}
 {{data.author}}
+<p>
+    {{data.content|safe}}
+</p>
+
+
 <img src="{{data.image.url}}" alt"">
