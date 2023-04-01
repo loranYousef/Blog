@@ -22,13 +22,15 @@ def post_detail(request,id):
 
 def create_post(request):
     if request.method =='POST':
-        form =PostForm(request.POST,request.FILES)
+        form = PostForm(request.POST,request.FILES)
         if form.is_valid():
-            myform = form.save(commit = False)
-            myform.author = request.user
-            myform.save()
+            print('in post')
+            form.save()
+           
+           
     else:
         form = PostForm()
+        print('in get')
 
     return render(request,'create.html',{'form':form})
     
