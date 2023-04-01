@@ -24,13 +24,12 @@ def create_post(request):
     if request.method =='POST':
         form = PostForm(request.POST,request.FILES)
         if form.is_valid():
-            print('in post')
             form.save()
            
            
     else:
         form = PostForm()
-        print('in get')
+        
 
     return render(request,'create.html',{'form':form})
     
