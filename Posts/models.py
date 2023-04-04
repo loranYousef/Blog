@@ -10,7 +10,16 @@ class Post(models.Model):
     image = models.ImageField(upload_to='posts/')
     author = models.ForeignKey(User,related_name= 'post_author', on_delete=models.CASCADE)
     tags = TaggableManager()
+    category = models.ForeignKey(User, related_name="post_category", on_delete=models.CASCADE, null= True,blank=True)
 
 
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def  __str__(self):
+        return self.name
+    
