@@ -7,5 +7,5 @@ from .models import Post , Category
 class PostAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
     summernote_fields = '__all__'
 
-admin.site.register(Post,PostAdmin)
-admin.site.register(Category)
+# admin.site.register(Post,PostAdmin)
+# admin.site.register(Category)
