@@ -12,7 +12,9 @@ class About(models.Model):
     age = models.IntegerField()
     gender= models.CharField(max_length=10)
 
-
+    def __str__(self):
+        return self.name
+    
 
 
 SKILL_TYPE = (
@@ -25,6 +27,8 @@ class Skills(models.Model):
     percentage =models.IntegerField()
     type = models.CharField(max_length=10,choices=SKILL_TYPE)
 
+    def __str__(self):
+        return self.skill
 
 class Educations(models.Model):
     year =models.CharField(max_length=100)
@@ -33,6 +37,8 @@ class Educations(models.Model):
     descriptions =models.CharField(max_length=300)
     last = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.title
 
 
 
@@ -43,6 +49,8 @@ class Experience(models.Model):
     descriptions =models.CharField(max_length=300)
     last = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.title
 
 
 class Service(models.Model):
@@ -50,9 +58,14 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     description =models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.title
 
 
 class Projects(models.Model):
     name= models.CharField(max_length=100)
     image= models.ImageField('projects/')
     tags= models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
