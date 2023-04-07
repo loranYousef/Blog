@@ -32,7 +32,7 @@ class Skills(models.Model):
         return self.skill
 
 class Educations(models.Model):
-    year =models.CharField(max_length=100)
+    year =models.IntegerField(max_length=100)
     title =models.CharField(max_length=100)
     place =models.CharField(max_length=50)
     descriptions =models.CharField(max_length=300)
@@ -44,7 +44,7 @@ class Educations(models.Model):
 
 
 class Experience(models.Model):
-    year =models.CharField(max_length=100)
+    year =models.IntegerField(max_length=100)
     title =models.CharField(max_length=100)
     place =models.CharField(max_length=50)
     descriptions =models.CharField(max_length=300)
