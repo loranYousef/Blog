@@ -13,6 +13,7 @@ class Post(models.Model):
     tags = TaggableManager()
     category = models.ForeignKey(User, related_name="post_category", on_delete=models.CASCADE, null= True,blank=True)
     create_date= models.DateTimeField(default= timezone.now)
+    email=models.EmailField(max_length=254)
 
 
     def __str__(self):

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import About , Skills , Educations ,Experience , Service, Projects
 from posts.models import Post
+from posts.forms import PostForm
 
 # Create your views here.
 
@@ -26,3 +27,14 @@ def home(request):
 
         
         })
+
+def post_create(request):
+        if request.method =='POST':
+            form = PostForm(request.POST,request.FILES)
+            if form.is_valid():
+                myform= form.save(commit=False)
+                myform.author = request.user
+                myform.save()
+        else:
+            form =PostForm()
+        return render(request,'home.html',{'form':form})
