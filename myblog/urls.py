@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from posts.views import post_list , post_detail, post_create, edit_post , delete_post 
 from about.views import home
+from about.views import post_createe
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +32,7 @@ urlpatterns = [
     path('blog/<int:id>/edit/' , edit_post),
     path('blog/<int:id>/delete' , delete_post),
     path('' , home),
-    
+    path('create' , post_createe),
    
     
 ]

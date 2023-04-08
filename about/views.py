@@ -3,6 +3,7 @@ from .models import About , Skills , Educations ,Experience , Service, Projects
 from posts.models import Post
 from posts.forms import PostForm
 
+
 # Create your views here.
 
 def home(request):
@@ -28,7 +29,7 @@ def home(request):
         
         })
 
-def post_create(request):
+def post_createe(request):
         if request.method =='POST':
             form = PostForm(request.POST,request.FILES)
             if form.is_valid():
