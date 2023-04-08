@@ -185,9 +185,9 @@
               <li>
                 <div class="title">{{item.year}}</div>
                 <div class="details">
-                  <h5>Specialize of course</h5>
+                  <h5>{{item}}</h5>
                   <small class="fg-theme">{{item.place}}</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+                  <p>{{item.descriptions}}</p>
                 </div>
               </li>
             
@@ -199,30 +199,18 @@
         <div class="col-md-6 wow fadeInRight" data-wow-delay="200ms">
           <h2 class="fw-normal">Experience</h2>
           <ul class="timeline mt-4 pr-md-5">
+            {% for item in experience %}
             <li>
-              <div class="title">2017 - Current</div>
+              <div class="title">{{item.year}}  {% if forloop.first %} Current {% endif %} </div>
               <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+                <h5>{{item}} </h5>
+                <small class="fg-theme">{{item.place}}</small>
+                <p>{{item.descriptions}}</p>
               </div>
             </li>
-            <li>
-              <div class="title">2014</div>
-              <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-              </div>
-            </li>
-            <li>
-              <div class="title">2011</div>
-              <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-              </div>
-            </li>
+            {% endfor %}
+
+
           </ul>
         </div>
       </div>
@@ -236,55 +224,27 @@
       </div>
       <h1 class="fw-normal text-center wow fadeInUp">What can i do?</h1>
       <div class="row mt-5">
+        {% for item in service %}
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card card-service wow fadeInUp">
             <div class="icon">
-              <span class="ti-paint-bucket"></span>
+              <span class="{{item.icon}}"></span>
             </div>
             <div class="caption">
-              <h4 class="fg-theme">Web Design</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
+              <h4 class="fg-theme">{{item}}</h4>
+              <p>{{service.description}}</p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-search"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">SEO</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-vector"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">UI/UX Design</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-desktop"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Web Development</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
+        
+        {% endfor %}
+
+
       </div>
     </div>
   </div>
   
-  <div class="vg-page page-funfact" style="background-image: url(../assets/img/bg_banner.jpg);">
+  <div class="vg-page page-funfact" style="background-image: url({% static '/assets/img/bg_banner.jpg' %});">
     <div class="container">
       <div class="row section-counter">
         <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
