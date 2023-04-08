@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import About , Skills , Educations ,Experience , Service
+from .models import About , Skills , Educations ,Experience , Service, Projects
 
 # Create your views here.
 
@@ -10,6 +10,7 @@ def home(request):
     education = Educations.objects.all()
     experience = Experience.objects.all()
     service = Service.objects.all()
+    projects = Projects.objects.all()
     return render(request,'home.html',{
         'about':about ,
         'coding_skills':coding_skills ,
@@ -17,6 +18,7 @@ def home(request):
         'education' : education,
         'experience': experience,
         'service' : service,
-        
+        'projects': projects,
+
         
         })
