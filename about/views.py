@@ -12,7 +12,7 @@ def home(request):
     experience = Experience.objects.all()
     service = Service.objects.all()
     projects = Projects.objects.all()
-    posts = Post.objects.all()
+    posts = Post.objects.all()[:3]
     return render(request,'home.html',{
         'about':about ,
         'coding_skills':coding_skills ,
@@ -22,7 +22,7 @@ def home(request):
         'service' : service,
         'projects': projects,
         'posts' : posts,
-        
+
 
         
         })

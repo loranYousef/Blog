@@ -1,6 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -11,6 +12,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,related_name= 'post_author', on_delete=models.CASCADE)
     tags = TaggableManager()
     category = models.ForeignKey(User, related_name="post_category", on_delete=models.CASCADE, null= True,blank=True)
+    create_date= models.DateTimeField(default= timezone.now)
 
 
     def __str__(self):
