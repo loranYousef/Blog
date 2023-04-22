@@ -40,7 +40,10 @@ class Educations(models.Model):
 
     def __str__(self):
         return self.title
-
+    
+    class Meta:
+        ordering = ('-year',)
+   
 
 
 class Experience(models.Model):
@@ -52,6 +55,8 @@ class Experience(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ('-year',)
 
 
 class Service(models.Model):
@@ -70,3 +75,10 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100)
+    subject= models.CharField(max_length=100)
+    massage = models.TextField(max_length=2000)
