@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, KontakttForm
 
 
 # Create your views here.
@@ -20,16 +20,28 @@ def post_detail(request,id):
 
 
 
+# def post_create(request):
+#     if request.method =='POST':
+#         form = PostForm(request.POST,request.FILES)
+#         if form.is_valid():
+#             myform= form.save(commit=False)
+#             myform.author = request.user
+#             myform.save()
+#     else:
+#         form =PostForm()
+#     return render(request,'create.html',{'form':form})
+
 def post_create(request):
     if request.method =='POST':
-        form = PostForm(request.POST,request.FILES)
+        form = KontakttForm(request.POST)
         if form.is_valid():
             myform= form.save(commit=False)
             myform.author = request.user
             myform.save()
     else:
-        form =PostForm()
-    return render(request,'create.html',{'form':form})
+        form =KontakttForm()
+    return render(request,'form.html',{'form':form})
+
 
 
 def edit_post(request,id):

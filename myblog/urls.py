@@ -33,7 +33,6 @@ urlpatterns = [
     path('blog/<int:id>/delete' , delete_post),
     path('' , home),
     path('create' , post_createe),
-   
     
 ]
 
