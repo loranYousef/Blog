@@ -31,6 +31,9 @@ def post_detail(request,id):
 #         form =PostForm()
 #     return render(request,'create.html',{'form':form})
 
+
+
+
 def post_create(request):
     if request.method =='POST':
         form = KontakttForm(request.POST)
