@@ -14,6 +14,8 @@ def post_list(request):
 
 
 
+
+
 def post_detail(request,id):
     post = Post.objects.get(id=id)
     return render(request,'single.html',{'data':post})
