@@ -1,6 +1,6 @@
 
-from django.shortcuts import render
-from .models import Post
+from django.shortcuts import render, redirect
+from .models import Post, Kontakt
 from .forms import PostForm, KontakttForm
 
 
@@ -36,16 +36,13 @@ def post_detail(request,id):
 
 
 
-def post_create(request):
+def contact_create(request):
     if request.method =='POST':
         form = KontakttForm(request.POST)
         if form.is_valid():
-            myform= form.save(commit=False)
-            myform.author = request.user
-            myform.save()
-    else:
-        form =KontakttForm()
-    return render(request,'form.html',{'form':form})
+            form.save()
+
+    return render(request,'home.html',{})
 
 
 

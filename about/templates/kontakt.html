@@ -1,0 +1,23 @@
+
+    <form method = "POST" class="vg-contact-form">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            
+            <div class="col-12 mt-3 wow fadeInUp">
+            <input name="name" class="form-control" type="text"  placeholder="Your Name">
+            </div>
+            <div class="col-6 mt-3 wow fadeInUp">
+            <input name="email" class="form-control" type="text"  placeholder="Email Address">
+            </div>
+            <div class="col-6 mt-3 wow fadeInUp">
+            <input name="subject" class="form-control" type="text"  placeholder="Subject">
+            </div>
+            <div class="col-12 mt-3 wow fadeInUp">
+            <textarea name="content" class="form-control"  rows="6" placeholder="Enter message here.."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">Send Message</button>
+            
+        </div>
+    </form>

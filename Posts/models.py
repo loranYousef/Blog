@@ -28,7 +28,8 @@ class Category(models.Model):
     
 
 class Kontakt(models.Model):
+    
     name = models.CharField(max_length=50)
-    email= models.EmailField(max_length=50)
+    email= models.EmailField(max_length=30)
     subject = models.CharField(max_length=50)
     content= models.TextField(max_length=200)
